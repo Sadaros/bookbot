@@ -1,5 +1,6 @@
 def main():
-    book_path = "books/frankenstein.txt"
+    print("bookbot, a tool for checking words and letters in a text file")
+    book_path = input("Relative Path to book: ")
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     num_letters = get_num_chars(text)
