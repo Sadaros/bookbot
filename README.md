@@ -1,4 +1,9 @@
 # bookbot
 Boot.dev bookbot project
 
-Not my first git, or github project, but i am learning
+To use this tool, you will have to specify the relative path to the text file you want to check
+
+ToDo:
+- Allow you to specify input file with command line argument
+- Allow you to save the report to file
+- Allow you to chose what metrics to analyze
