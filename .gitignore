@@ -1,3 +1,4 @@
 books/
 .vscode/
 test/
+*.txt

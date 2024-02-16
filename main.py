@@ -9,9 +9,12 @@ def main():
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     num_letters = get_num_chars(text)
-    book_report(num_letters, num_words, book_path)
+    if len(sys.argv) <= 2:
+        book_report_print(num_letters, num_words, book_path)
+    else:
+        book_report_write(num_letters, num_words, book_path)
 
-def book_report(letters, words, book_path):
+def book_report_print(letters, words, book_path):
     reported_letters = []
     for letter in letters:
         this_letter = {}
@@ -19,14 +22,32 @@ def book_report(letters, words, book_path):
         this_letter["num"] = letters[letter]
         reported_letters.append(this_letter)
     reported_letters.sort(reverse=True, key=sort_on)
-    
+
     print(f"--- Begin report of {book_path} ---")
     print(" ")
     print(f"There are a total of {words} words in the document")
     print(" ")
     for letter in reported_letters:
         print(f"The letter {letter['letter']} is found {letter['num']} times in the document")
-    print(" --- End report ---")
+    print("--- End report ---")
+
+def book_report_write(letters, words, book_path):
+    output = open(sys.argv[2], "a")
+    reported_letters = []
+    for letter in letters:
+        this_letter = {}
+        this_letter["letter"] = letter
+        this_letter["num"] = letters[letter]
+        reported_letters.append(this_letter)
+    reported_letters.sort(reverse=True, key=sort_on)
+
+    output.write(f"--- Begin report of {book_path} ---\n")
+    output.write("\n")
+    output.write(f"There are a total of {words} words in the document\n")
+    output.write("\n")
+    for letter in reported_letters:
+        output.write(f"The letter {letter['letter']} is found {letter['num']} times in the document\n")
+    output.write("--- End report ---\n")
 
 def sort_on(dict):
     return dict["num"]
