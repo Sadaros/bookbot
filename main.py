@@ -1,6 +1,11 @@
+import sys
+
 def main():
     print("bookbot, a tool for checking words and letters in a text file")
-    book_path = input("Relative Path to book: ")
+    if len(sys.argv) == 1:
+        book_path = input("Relative Path to book: ")
+    else:
+        book_path = sys.argv[1]
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     num_letters = get_num_chars(text)
