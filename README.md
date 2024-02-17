@@ -11,3 +11,7 @@ ToDo:
 - ~Allow you to specify input file with command line argument~ done 17.02.24
 - ~Allow you to save the report to file~ done 17.02.24
 - Allow you to chose what metrics to analyze
+- Error handling
+    - check whether file exists before opening
+    - check if file exists before writing report to file, so as to avoid overwriting something
+- Refactor code and pull single use functions into main()
